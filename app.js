@@ -2,57 +2,91 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs');
 const notifier = require('node-notifier');
+const { exec } = require('child_process');
 const later = require('@breejs/later');
+later.date.localTime();
 
-async function fetchTexts() {
-    const { data } = await axios.get('http://127.0.0.1:5500/index.html');
-    const $ = cheerio.load(data);
-    const texts = [];
-    $('script').remove();
-    texts.push($('body').text().trim());
-    return texts;
+
+async function fetchCurrentNotices() {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const result = await axios.get('http://www.iomexam.edu.np/index.php/exam/results');
+            const $ = cheerio.load(result.data);
+            const table = $('.table.table-striped.table-bordered.dTableR tbody');
+            const currentNotices = [];
+            for (let i = 0; i < 5; i++) {
+                const row = table.eq(i);
+                const date = row.find('td').eq(0).text().trim();
+                const title = row.find('td').eq(1).text().trim();
+                const description = row.find('td').eq(2).text().trim();
+                const url = row.find('td').eq(3).find('a').attr('href');
+                currentNotices.push({ Date: date, Title: title, Description: description, Url: url });
+            }
+            resolve(currentNotices);
+        }
+        catch (err) {
+            reject(err);
+        }
+    });
 }
 
-
-async function getSavedTexts() {
+async function fetchSavedNotices() {
     try {
-        const data = fs.readFileSync('texts.json', 'utf8');
+        const data = fs.readFileSync('savedNotices.json', 'utf-8');
         return JSON.parse(data);
-    } catch (error) {
+    }
+    catch (err) {
+        console.log('Error reading file');
         return [];
     }
 }
 
-function saveTexts(texts) {
-    fs.writeFileSync('texts.json', JSON.stringify(texts, null, 2));
+async function saveNotices(notices) {
+    fs.writeFileSync('savedNotices.json', JSON.stringify(notices, null, 2));
 }
 
-function notifynewTexts(texts) {
-    notifier.notify({
-        title: 'New Texts',
-        message: texts.join('\n'),
-        timeout: 10
-    });
-}
+async function checkForNewNotices(currentNotices, savedNotices) {
+    const newNotices = currentNotices.filter((notice) =>
+        !savedNotices.some(savedNotice =>
+            savedNotice.Date === notice.Date &&
+            savedNotice.Title === notice.Title &&
+            savedNotice.Description === notice.Description
+        )
+    );
+    if (newNotices.length > 0) {
 
-
-
-async function checkForNewText() {
-    const currentTexts = await fetchTexts();
-    const savedTexts = await getSavedTexts();
-    const newTexts = currentTexts.filter((text) => !savedTexts.includes(text));
-
-    if (newTexts.length > 0) {
-        notifynewTexts(newTexts);
-        savedTexts.push(...currentTexts);
-        saveTexts(savedTexts);
+        savedNotices.unshift(...newNotices);
+        saveNotices(savedNotices);
+        return newNotices;
+    }
+    else {
+        return [];
     }
 }
 
+async function notify(notices) {
+    for (let notice of notices) {
+        notifier.notify({
+            title: "Date: " + notice.Date + '\n' + notice.Title,
+            message: notice.Description,
+            icon: './assets/icon.png',
+            wait: true
+        });
+        notifier.on('click', function (notifierObject, options, event) {
+            // For downloading the notice pdf
+            exec(`start ${notice.Url}`);
+        });
+    }
+}
 
-later.date.localTime();
+async function main() {
+    const currentNotices = await fetchCurrentNotices();
+    const savedNotices = await fetchSavedNotices();
+    const newNotices = await checkForNewNotices(currentNotices, savedNotices);
+    if (newNotices.length > 0) { notify(newNotices) } else { console.log('No new notices') }
+}
 
-let sched = later.parse.text('at 10:51 pm');
 
-later.setInterval(checkForNewText, sched);
+const schedule = later.parse.text('every 1 hour');
 
+later.setInterval(main, schedule);
