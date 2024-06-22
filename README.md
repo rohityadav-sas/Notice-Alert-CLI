@@ -1,6 +1,6 @@
 ## NoticeNotifier
 
-NoticeNotifier is a Node.js application that fetches exam result notices from the Institute of Medicine's (IOM) website, compares them with previously saved notices, and sends desktop notifications for any new notices.
+NoticeNotifier is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your computer when new notices are available.
 
 ## Table of Contents
 
