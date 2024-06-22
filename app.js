@@ -86,6 +86,8 @@ async function main() {
 }
 
 
-const schedule = later.parse.text('every 1 hour');
+// const schedule = later.parse.text('every 1 hour');
 
-later.setInterval(main, schedule);
+// later.setInterval(main, schedule);
+
+main()
