@@ -73,7 +73,6 @@ async function notify(notices) {
             wait: true
         });
         notifier.on('click', function (notifierObject, options, event) {
-            // For downloading the notice pdf
             exec(`start ${notice.Url}`);
         });
     }
