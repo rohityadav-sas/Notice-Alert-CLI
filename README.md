@@ -35,14 +35,17 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 1. Clone the repository
     ```bash
     git clone https://github.com/rohityadav-sas/Notice-Notifier
+    ```
     
 2. Navigate to the source directory:
     ```bash
     cd Notice-Notifier
+    ```
 
 3. Install the required dependencies
     ```bash
     npm install
+    ```
 
 ## Usage
 
@@ -52,6 +55,7 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 - Run the application:
     ```bash
     node app.js
+    ```
 
 - The application will start fetching notices every hour and will notify you of any new notices.
 
