@@ -8,15 +8,35 @@
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "notice-notifier",
+    "web-scraping",
+    "exam-result",
+    "CLI",
+    "command-line-tool"
+  ],
+  "author": "Rohit Kumar",
   "license": "ISC",
-  "description": "",
+  "description": "A Node.js application that fetches examination result and other notices from IOM's website and sends desktop notifications.",
   "dependencies": {
-    "axios": "^1.7.2",
-    "chalk": "^5.3.0",
+    "axios": "^1.3.1",
     "cheerio": "^1.0.0-rc.12",
-    "child_process": "^1.0.2",
     "node-notifier": "^10.0.1"
+  },
+  "files": [
+    "app.js",
+    "checkAndNotify.js",
+    "handleArgs.js",
+    "noticeManager.js",
+    "notifier.js",
+    "assets/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohityadav-sas/Notice-Notifier.git"
+  },
+  "homepage": "https://github.com/rohityadav-sas/Notice-Notifier#readme",
+  "bugs": {
+    "url": "https://github.com/rohityadav-sas/Notice-Notifier/issues"
   }
 }

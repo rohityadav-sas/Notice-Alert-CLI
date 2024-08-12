@@ -62,13 +62,15 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 
     - To run the application with a specific interval:
         ```bash
-        npm start
+        npx iomnotice -interval duration
         ```
         Duration can be in hours (hr or h), minutes (min or m), or seconds (sec or s).
 
         For example:
         ```bash
         npx iomnotice -interval 30min
+        
+        npx iomnotice -interval 1hr
         ```
 
     - To run the application with default settings (1 hour interval):
@@ -103,11 +105,9 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 
 - **node-notifier**: For sending desktop notifications.
 
-- **child_process**: For executing shell commands
-
 ## License
 
-This project is licensed under the ISC License. See the LICENSE file for details.
+This project is licensed under the ISC License. See the [LICENSE](./LICENSE) file for details.
 
 ## Contributing
 
