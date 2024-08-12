@@ -3,8 +3,6 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const notifier = require('node-notifier');
 const { exec } = require('child_process');
-const later = require('@breejs/later');
-later.date.localTime();
 
 
 async function fetchCurrentNotices() {
@@ -33,10 +31,11 @@ async function fetchCurrentNotices() {
 async function fetchSavedNotices() {
     try {
         const data = fs.readFileSync('savedNotices.json', 'utf-8');
+        if (data.length === 0) { return [] };
         return JSON.parse(data);
     }
     catch (err) {
-        console.log('Error reading file');
+        console.error('Error reading file');
         return [];
     }
 }
@@ -65,6 +64,13 @@ async function checkForNewNotices(currentNotices, savedNotices) {
 }
 
 async function notify(notices) {
+    notifier.on('click', function (notifierObject, options, event) {
+        const notice = notices.find(n => n.Title === options.t.split('\n')[1]);
+        if (notice) {
+            exec(`start ${notice.Url}`);
+        }
+    });
+
     for (let notice of notices) {
         notifier.notify({
             title: "Date: " + notice.Date + '\n' + notice.Title,
@@ -72,20 +78,23 @@ async function notify(notices) {
             icon: './assets/icon.png',
             wait: true
         });
-        notifier.on('click', function (notifierObject, options, event) {
-            exec(`start ${notice.Url}`);
-        });
     }
 }
 
 async function main() {
+    console.log('Fetching notices...');
     const currentNotices = await fetchCurrentNotices();
     const savedNotices = await fetchSavedNotices();
+    console.log('\nChecking for new notices...');
     const newNotices = await checkForNewNotices(currentNotices, savedNotices);
-    if (newNotices.length > 0) { notify(newNotices) } else { console.log('No new notices') }
+    if (newNotices.length > 0) {
+        console.log('\nNew notices found');
+        console.log(newNotices);
+        notify(newNotices);
+    } else { console.log('\nNo new notices\n') }
+
 }
 
 
-const schedule = later.parse.text('every 1 hour');
-
-later.setInterval(main, schedule);
+// setInterval(main, 3500);
+main();

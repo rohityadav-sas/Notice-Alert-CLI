@@ -54,7 +54,7 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 - Install the required dependencies using npm install.
 - Run the application:
     ```bash
-    node app.js
+    npm start
     ```
 
 - The application will start fetching notices every hour and will notify you of any new notices.
