@@ -66,14 +66,14 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 - **Check for New Notices**: The application compares the current notices with the saved notices to identify any new notices.
 - **Notify**: If there are any new notices, the application sends desktop notifications using node-notifier.
 - **Save Notices**: The application updates savedNotices.json with any new notices.
-- **Scheduling**: The application uses @breejs/later to schedule the notice fetching process to run every hour.
+- **Scheduling**: The application schedule the notice fetching process to run every hour.
 
 ## Dependencies
 
 - **axios**: For making HTTP requests.
 - **cheerio**: For parsing HTML and extracting data.
 - **node-notifier**: For sending desktop notifications.
-- **@breejs/later**: For scheduling tasks.
+- **child_process**: For executing shell commands
 
 ## License
 

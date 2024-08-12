@@ -3,6 +3,14 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const notifier = require('node-notifier');
 const { exec } = require('child_process');
+const readline = require('readline');
+
+function stopProcess() {
+    readline.emitKeypressEvents(process.stdin);
+    process.stdin.setRawMode(true);
+    console.log("Press any key to exit...");
+    process.stdin.on('keypress', () => process.exit());
+}
 
 
 async function fetchCurrentNotices() {
@@ -30,7 +38,10 @@ async function fetchCurrentNotices() {
 
 async function fetchSavedNotices() {
     try {
-        const data = fs.readFileSync('savedNotices.json', 'utf-8');
+        if (!fs.existsSync('./assets/savedNotices.json')) {
+            fs.writeFileSync('./assets/savedNotices.json', '[]');
+        }
+        const data = fs.readFileSync('./assets/savedNotices.json', 'utf-8');
         if (data.length === 0) { return [] };
         return JSON.parse(data);
     }
@@ -41,7 +52,7 @@ async function fetchSavedNotices() {
 }
 
 async function saveNotices(notices) {
-    fs.writeFileSync('savedNotices.json', JSON.stringify(notices, null, 2));
+    fs.writeFileSync('./assets/savedNotices.json', JSON.stringify(notices, null, 2));
 }
 
 async function checkForNewNotices(currentNotices, savedNotices) {
@@ -92,9 +103,10 @@ async function main() {
         console.log(newNotices);
         notify(newNotices);
     } else { console.log('\nNo new notices\n') }
+    stopProcess();
 
 }
-
-
-// setInterval(main, 3500);
 main();
+
+const interval = 1000 * 60 * 60; //1 hour
+setInterval(main, interval);
