@@ -21,9 +21,12 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 ## Features
 
 - Fetches the latest exam result notices from the IOM website.
+
 - Compares the fetched notices with previously saved notices to identify new notices.
+
 - Sends desktop notifications for any new notices.
-- Schedules the notice fetching and notification process to run every hour.
+
+- Allows scheduling of the notice fetching and notification process with customizable intervals.
 
 ## Prerequisites
 
@@ -50,29 +53,51 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 ## Usage
 
 - Make sure you have Node.js and npm installed.
-- Clone this repository and navigate to the project directory.
-- Install the required dependencies using npm install.
-- Run the application:
-    ```bash
-    npm start
-    ```
 
-- The application will start fetching notices every hour and will notify you of any new notices.
+- Clone this repository and navigate to the project directory.
+
+- Install the required dependencies using npm install.
+
+- Run the application with optional arguments:
+
+    - To run the application with a specific interval:
+        ```bash
+        npm start
+        ```
+        Duration can be in hours (hr or h), minutes (min or m), or seconds (sec or s). For example: npx iomnotice -interval 30min.
+
+    - To run the application with default settings (1 hour interval):
+        ```bash
+        npx iomnotice
+        ```
+
+    - To see usage instructions:
+        ```bash
+        npx iomnotice -help
+        ```
 
 ## How It Works
 
 - **Fetch Current Notices**: The application fetches the latest notices from the IOM website using Axios and Cheerio.
-- **Fetch Saved Notices**: The application reads previously saved notices from savedNotices.json.
+
+- **Fetch Saved Notices**: The application reads previously saved notices from `savedNotices.json`.
+
 - **Check for New Notices**: The application compares the current notices with the saved notices to identify any new notices.
-- **Notify**: If there are any new notices, the application sends desktop notifications using node-notifier.
-- **Save Notices**: The application updates savedNotices.json with any new notices.
-- **Scheduling**: The application schedule the notice fetching process to run every hour.
+
+- **Notify**: If there are any new notices, the application sends desktop notifications using `node-notifier`.
+
+- **Save Notices**: The application updates `savedNotices.json` with any new notices.
+
+- **Scheduling**: The application allows scheduling the notice fetching process with customizable intervals.
 
 ## Dependencies
 
 - **axios**: For making HTTP requests.
+
 - **cheerio**: For parsing HTML and extracting data.
+
 - **node-notifier**: For sending desktop notifications.
+
 - **child_process**: For executing shell commands
 
 ## License
