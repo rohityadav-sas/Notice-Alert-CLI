@@ -1,6 +1,6 @@
 ## Notice-Notifier
 
-NoticeNotifier is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your computer when new notices are available.
+**NoticeNotifier** is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your computer when new notices are available.
 
 ## Table of Contents
 
@@ -85,25 +85,26 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
 
 ## How It Works
 
-- **Fetch Current Notices**: The application fetches the latest notices from the IOM website using Axios and Cheerio.
+- ***Fetch Current Notices***: The application fetches the latest notices from the IOM website using Axios and Cheerio.
 
-- **Fetch Saved Notices**: The application reads previously saved notices from `savedNotices.json`.
+- ***Fetch Saved Notices***: The application reads previously saved notices from savedNotices.json.
 
-- **Check for New Notices**: The application compares the current notices with the saved notices to identify any new notices.
+- ***Check for New Notices***: The application compares the current notices with the saved notices to identify any new 
+notices.
 
-- **Notify**: If there are any new notices, the application sends desktop notifications using `node-notifier`.
+- ***Notify***: If there are any new notices, the application sends desktop notifications using node-notifier.
 
-- **Save Notices**: The application updates `savedNotices.json` with any new notices.
+- ***Save Notices***: The application updates savedNotices.json with any new notices.
 
-- **Scheduling**: The application allows scheduling the notice fetching process with customizable intervals.
+- ***Scheduling***: The application allows scheduling the notice fetching process with customizable intervals.
 
 ## Dependencies
 
-- **axios**: For making HTTP requests.
+- ***axios***: For making HTTP requests.
 
-- **cheerio**: For parsing HTML and extracting data.
+- ***cheerio***: For parsing HTML and extracting data.
 
-- **node-notifier**: For sending desktop notifications.
+- ***node-notifier***: For sending desktop notifications.
 
 ## License
 
