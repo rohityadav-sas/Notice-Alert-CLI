@@ -85,18 +85,18 @@
 
 ## How It Works
 
-- ***Fetch Current Notices***: The application fetches the latest notices from the IOM website using Axios and Cheerio.
+- **Fetch Current Notices**: The application fetches the latest notices from the IOM website using Axios and Cheerio.
 
-- ***Fetch Saved Notices***: The application reads previously saved notices from savedNotices.json.
+- **Fetch Saved Notices**: The application reads previously saved notices from savedNotices.json.
 
-- ***Check for New Notices***: The application compares the current notices with the saved notices to identify any new 
+- **Check for New Notices**: The application compares the current notices with the saved notices to identify any new 
 notices.
 
-- ***Notify***: If there are any new notices, the application sends desktop notifications using node-notifier.
+- **Notify**: If there are any new notices, the application sends desktop notifications using node-notifier.
 
-- ***Save Notices***: The application updates savedNotices.json with any new notices.
+- **Save Notices**: The application updates savedNotices.json with any new notices.
 
-- ***Scheduling***: The application allows scheduling the notice fetching process with customizable intervals.
+- **Scheduling**: The application allows scheduling the notice fetching process with customizable intervals.
 
 ## Dependencies
 
