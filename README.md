@@ -64,7 +64,12 @@ NoticeNotifier is a Node.js application that retrieves examination result notifi
         ```bash
         npm start
         ```
-        Duration can be in hours (hr or h), minutes (min or m), or seconds (sec or s). For example: npx iomnotice -interval 30min.
+        Duration can be in hours (hr or h), minutes (min or m), or seconds (sec or s).
+
+        For example:
+        ```bash
+        npx iomnotice -interval 30min
+        ```
 
     - To run the application with default settings (1 hour interval):
         ```bash
