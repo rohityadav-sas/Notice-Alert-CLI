@@ -1,6 +1,6 @@
-## Notice-Alert
+## Notice-Alert-CLI
 
-**NoticeAlert** is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your computer when new notices are available.
+**NoticeAlertCLI** is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your computer when new notices are available.
 
 ## Table of Contents
 
@@ -37,12 +37,12 @@
 
 1. Clone the repository
     ```bash
-    git clone https://github.com/rohityadav-sas/Notice-Notifier
+    git clone https://github.com/rohityadav-sas/Notice-Alert-CLI
     ```
     
 2. Navigate to the source directory:
     ```bash
-    cd Notice-Notifier
+    cd Notice-Alert-CLI
     ```
 
 3. Install the required dependencies

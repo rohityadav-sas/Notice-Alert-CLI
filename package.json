@@ -1,5 +1,5 @@
 {
-  "name": "notice-alert",
+  "name": "notice-alert-cli",
   "version": "1.0.0",
   "main": "app.js",
   "bin": {
@@ -33,10 +33,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rohityadav-sas/Notice-Alert.git"
+    "url": "git+https://github.com/rohityadav-sas/Notice-Alert-CLI.git"
   },
-  "homepage": "https://github.com/rohityadav-sas/Notice-Alert#readme",
+  "homepage": "https://github.com/rohityadav-sas/Notice-Alert-CLI#readme",
   "bugs": {
-    "url": "https://github.com/rohityadav-sas/Notice-Alert/issues"
+    "url": "https://github.com/rohityadav-sas/Notice-Alert-CLI/issues"
   }
 }
