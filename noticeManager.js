@@ -1,6 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs');
+const path = require('path');
 
 async function fetchCurrentNotices() {
     return new Promise(async (resolve, reject) => {
@@ -27,21 +28,21 @@ async function fetchCurrentNotices() {
 
 async function fetchSavedNotices() {
     try {
-        if (!fs.existsSync('./assets/savedNotices.json')) {
-            fs.writeFileSync('./assets/savedNotices.json', '[]');
+        if (!fs.existsSync(path.join(__dirname, '/assets/savedNotices.json'))) {
+            fs.writeFileSync(path.join(__dirname, '/assets/savedNotices.json'), '[]');
         }
-        const data = fs.readFileSync('./assets/savedNotices.json', 'utf-8');
+        const data = fs.readFileSync(path.join(__dirname, '/assets/savedNotices.json'), 'utf-8');
         if (data.length === 0) { return [] };
         return JSON.parse(data);
     }
     catch (err) {
-        console.error('Error reading file');
+        throw (err);
         return [];
     }
 }
 
 async function saveNotices(notices) {
-    fs.writeFileSync('./assets/savedNotices.json', JSON.stringify(notices, null, 2));
+    fs.writeFileSync(path.join(__dirname, "/assets/savedNotices.json"), JSON.stringify(notices, null, 2));
 }
 
 async function checkForNewNotices(currentNotices, savedNotices) {
@@ -53,7 +54,6 @@ async function checkForNewNotices(currentNotices, savedNotices) {
         )
     );
     if (newNotices.length > 0) {
-
         savedNotices.unshift(...newNotices);
         saveNotices(savedNotices);
         return newNotices;

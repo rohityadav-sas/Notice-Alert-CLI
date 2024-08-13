@@ -1,4 +1,5 @@
 const { fetchCurrentNotices, fetchSavedNotices, checkForNewNotices } = require('./noticeManager');
+const { notify } = require('./notifier');
 const readline = require('readline');
 
 function stopProcess() {

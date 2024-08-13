@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "bin": {
-    "iomnotice": "./app.js"
+    "iomnotice": "app.js"
   },
   "scripts": {
     "start": "node app.js"

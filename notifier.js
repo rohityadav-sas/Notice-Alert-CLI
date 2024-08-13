@@ -18,3 +18,5 @@ async function notify(notices) {
         });
     }
 }
+
+module.exports = { notify };
