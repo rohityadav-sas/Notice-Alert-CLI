@@ -1,5 +1,5 @@
 {
-  "name": "notice-notifier",
+  "name": "notice-board",
   "version": "1.0.0",
   "main": "app.js",
   "bin": {
@@ -9,7 +9,7 @@
     "start": "node app.js"
   },
   "keywords": [
-    "notice-notifier",
+    "notice-board",
     "web-scraping",
     "exam-result",
     "CLI",
@@ -24,19 +24,19 @@
     "node-notifier": "^10.0.1"
   },
   "files": [
+    "assets/",
     "app.js",
     "checkAndNotify.js",
     "handleArgs.js",
     "noticeManager.js",
-    "notifier.js",
-    "assets/"
+    "notifier.js"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rohityadav-sas/Notice-Notifier.git"
+    "url": "git+https://github.com/rohityadav-sas/Notice-Board.git"
   },
-  "homepage": "https://github.com/rohityadav-sas/Notice-Notifier#readme",
+  "homepage": "https://github.com/rohityadav-sas/Notice-Board#readme",
   "bugs": {
-    "url": "https://github.com/rohityadav-sas/Notice-Notifier/issues"
+    "url": "https://github.com/rohityadav-sas/Notice-Board/issues"
   }
 }
