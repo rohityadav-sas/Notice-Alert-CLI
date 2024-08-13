@@ -1,6 +1,6 @@
-## Notice-Notifier
+## Notice-Board
 
-**NoticeNotifier** is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your computer when new notices are available.
+**NoticeBoard** is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your computer when new notices are available.
 
 ## Table of Contents
 
