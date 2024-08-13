@@ -1,5 +1,5 @@
 {
-  "name": "notice-board",
+  "name": "notice-alert",
   "version": "1.0.0",
   "main": "app.js",
   "bin": {
@@ -9,7 +9,7 @@
     "start": "node app.js"
   },
   "keywords": [
-    "notice-board",
+    "notice-alert",
     "web-scraping",
     "exam-result",
     "CLI",
@@ -33,10 +33,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rohityadav-sas/Notice-Board.git"
+    "url": "git+https://github.com/rohityadav-sas/Notice-Alert.git"
   },
-  "homepage": "https://github.com/rohityadav-sas/Notice-Board#readme",
+  "homepage": "https://github.com/rohityadav-sas/Notice-Alert#readme",
   "bugs": {
-    "url": "https://github.com/rohityadav-sas/Notice-Board/issues"
+    "url": "https://github.com/rohityadav-sas/Notice-Alert/issues"
   }
 }
