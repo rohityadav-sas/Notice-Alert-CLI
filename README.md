@@ -24,6 +24,10 @@
 
 - Compares the fetched notices with previously saved notices to identify new notices.
 
+- Sends desktop notifications for any new notices.
+
+- Allows scheduling of the notice fetching and notification process with customizable intervals.
+
 ## Prerequisites
 
 - Node.js (v12 or higher)
