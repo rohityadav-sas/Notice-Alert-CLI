@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "bin": {
-    "iomnotice": "app.js"
+    "iomnotice": "src/iomnotice/app.js",
+    "ioenotice": "src/ioenotice/app.js"
   },
-  "scripts": {
-    "start": "node app.js"
-  },
+  "scripts": {},
   "keywords": [
     "notice-alert",
     "web-scraping",
@@ -17,7 +16,7 @@
   ],
   "author": "Rohit Kumar",
   "license": "ISC",
-  "description": "A Node.js application that fetches examination result and other notices from IOM's website and sends desktop notifications.",
+  "description": "A Node.js application that fetches examination result and other notices from IOE's and IOM's website and sends desktop notifications.",
   "dependencies": {
     "axios": "^1.3.1",
     "cheerio": "^1.0.0-rc.12",
@@ -25,11 +24,7 @@
   },
   "files": [
     "assets/",
-    "app.js",
-    "checkAndNotify.js",
-    "handleArgs.js",
-    "noticeManager.js",
-    "notifier.js"
+    "src/"
   ],
   "repository": {
     "type": "git",

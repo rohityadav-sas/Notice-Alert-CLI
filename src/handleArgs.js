@@ -28,7 +28,7 @@ function parseInterval(argument) {
 }
 
 
-function handleArguments() {
+function handleArguments(command) {
     switch (args[0]) {
         case '-interval':
             const intervalArg = args[1];
@@ -50,9 +50,8 @@ function handleArguments() {
         default:
             if (args.length === 0) {
                 console.log("\nRunning script in interval mode with default interval 1 hour\n");
-                checkAndNotify();
+                checkAndNotify(command);
                 setInterval(checkAndNotify, 3600000);
-
             }
             else {
                 console.log('\nInvalid arguments. Use iomnotice -help for help\n');

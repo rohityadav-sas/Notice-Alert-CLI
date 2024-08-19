@@ -1,6 +1,6 @@
 ## Notice-Alert-CLI
 
-**NoticeAlertCLI** is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your computer when new notices are available.
+**NoticeAlertCLI** is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your terminal.
 
 ## Table of Contents
 
@@ -23,10 +23,6 @@
 - Fetches the latest exam result notices from the IOM website.
 
 - Compares the fetched notices with previously saved notices to identify new notices.
-
-- Sends desktop notifications for any new notices.
-
-- Allows scheduling of the notice fetching and notification process with customizable intervals.
 
 ## Prerequisites
 
