@@ -16,11 +16,11 @@
 
 
 ## Preview
-![preview1.png](./assets/preview2.png?raw=true)
+![preview1.png](./assets/preview1.png?raw=true)
 
-![preview2.png](./assets/preview3.png?raw=true)
+![preview2.png](./assets/preview2.png?raw=true)
 
-![preview3.png](./assets/preview.png?raw=true)
+![preview3.png](./assets/preview3.png?raw=true)
 
 ## Features
 
