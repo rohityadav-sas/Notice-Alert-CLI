@@ -34,8 +34,8 @@ function handleArguments(command) {
             const intervalArg = args[1];
             let interval = parseInterval(intervalArg);
             console.log(`\nRunning script in interval mode with ${interval.duration / 1000 / (interval.unit === 'seconds' ? 1 : interval.unit === 'minutes' ? 60 : 3600)} ${interval.unit}\n`);
-            checkAndNotify();
-            setInterval(checkAndNotify, interval.duration);
+            checkAndNotify(command);
+            setInterval(checkAndNotify, interval.duration, command);
             break;
         case '-help':
             if (args.length === 0 || args.includes('-help')) {
