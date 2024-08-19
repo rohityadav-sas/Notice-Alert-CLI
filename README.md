@@ -1,6 +1,6 @@
 ## Notice-Alert-CLI
 
-**NoticeAlertCLI** is a Node.js application that retrieves examination result notifications from the Institute of Medicine’s (IOM) website and delivers them directly to your terminal.
+**NoticeAlertCLI** is a Node.js application that retrieves examination result notifications from the Institue of Engineering's (IOM) and Institute of Medicine’s (IOM) website and delivers them directly to your terminal.
 
 ## Table of Contents
 
@@ -60,37 +60,50 @@
         ```bash
         npx iomnotice -interval duration
         ```
+        OR
+        ```bash
+        npx ioenotice -interval duration
+        ```
+
         Duration can be in hours (hr or h), minutes (min or m), or seconds (sec or s).
 
         For example:
         ```bash
         npx iomnotice -interval 30min
         
-        npx iomnotice -interval 1hr
+        npx ioenotice -interval 1hr
         ```
 
     - To run the application with default settings (1 hour interval):
         ```bash
         npx iomnotice
         ```
+        OR
+        ```bash
+        npx ioenotice
+        ```
 
     - To see usage instructions:
         ```bash
         npx iomnotice -help
         ```
+        OR 
+        ```bash
+        npx ioenotice -help
+        ```
 
 ## How It Works
 
-- **Fetch Current Notices**: The application fetches the latest notices from the IOM website using Axios and Cheerio.
+- **Fetch Current Notices**: The application fetches the latest notices from the IOE and IOM website using Axios and Cheerio.
 
-- **Fetch Saved Notices**: The application reads previously saved notices from savedNotices.json.
+- **Fetch Saved Notices**: The application reads previously saved notices from saved Notices.
 
 - **Check for New Notices**: The application compares the current notices with the saved notices to identify any new 
 notices.
 
 - **Notify**: If there are any new notices, the application sends desktop notifications using node-notifier.
 
-- **Save Notices**: The application updates savedNotices.json with any new notices.
+- **Save Notices**: The application updates the Notices file with any new notices.
 
 - **Scheduling**: The application allows scheduling the notice fetching process with customizable intervals.
 
