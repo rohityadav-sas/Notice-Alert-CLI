@@ -20,49 +20,47 @@
 
 ## Installation
 
-Install the package globally using npm:
+- Install the package globally using npm:
+    ```bash
+    npm install -g notice-alert-cli
+    ```
 
-```bash
-npm install -g notice-alert-cli
-```
-
-Or install it locally in your project:
-
-```bash
-npm install notice-alert-cli
-```
+- Or install it locally in your project:
+    ```bash
+    npm install notice-alert-cli
+    ```
 
 ## Usage
 - To run the application with a specific interval:
 
-```bash
-npx iomnotice -interval 30min
-```
-OR
-```bash
-npx ioenotice -interval 30min
-```
+    ```bash
+    npx iomnotice -interval 30min
+    ```
+    OR
+    ```bash
+    npx ioenotice -interval 30min
+    ```
 *Duration can be in hours (hr or h), minutes (min or m), or seconds (sec or s).*
 
 - To run the application with default settings (1-hour interval):
 
-```bash
-npx iomnotice
-```
-OR
-```bash
-npx ioenotice
-```
+    ```bash
+    npx iomnotice
+    ```
+    OR
+    ```bash
+    npx ioenotice
+    ```
 
 - To see usage instructions:
 
-```bash
-npx iomnotice --help
-```
-OR
-```bash
-npx ioenotice --help
-```
+    ```bash
+    npx iomnotice --help
+    ```
+    OR
+    ```bash
+    npx ioenotice --help
+    ```
 
 ## How It Works
 

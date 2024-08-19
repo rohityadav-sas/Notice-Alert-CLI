@@ -74,7 +74,9 @@
         For example:
         ```bash
         npx iomnotice -interval 30min
-        
+        ```
+        OR
+        ```bash
         npx ioenotice -interval 1hr
         ```
 
