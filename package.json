@@ -1,6 +1,6 @@
 {
   "name": "notice-alert-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bin": {
     "iomnotice": "src/iomnotice/app.js",
     "ioenotice": "src/ioenotice/app.js"
