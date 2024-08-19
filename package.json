@@ -1,6 +1,6 @@
 {
   "name": "notice-alert-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bin": {
     "iomnotice": "src/iomnotice/app.js",
     "ioenotice": "src/ioenotice/app.js"
@@ -22,7 +22,7 @@
     "node-notifier": "^10.0.1"
   },
   "files": [
-    "assets/",
+    "assets/icon.png",
     "src/"
   ],
   "repository": {
