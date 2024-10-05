@@ -4,7 +4,7 @@
 
 ## Features
 
-- Fetches the latest exam result notices from the IOM website.
+- Fetches the latest exam result notices from the IOE and IOM website.
 
 - Compares the fetched notices with previously saved notices to identify new notices.
 
